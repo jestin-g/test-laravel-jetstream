@@ -12,7 +12,8 @@ class CourseController extends Controller
 
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::with('user')->withCount('episodes')->get();
+
         return Inertia::render('Courses/Index', compact('courses'));
     }
 }
