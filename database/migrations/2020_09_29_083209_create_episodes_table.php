@@ -16,7 +16,7 @@ class CreateEpisodesTable extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->string('video_url');
             $table->foreignId('course_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
