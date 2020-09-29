@@ -3035,6 +3035,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3412,13 +3415,40 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 //
 //
 //
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      courseList: this.courses
+    };
+  },
+  props: ['courses'],
+  mounted: function mounted() {
+    console.log(this.courses);
+  }
+});
 
 /***/ }),
 
@@ -25144,7 +25174,22 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            Dashboard\n                        "
+                        "\n                            Tableau de bord\n                        "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "jet-nav-link",
+                    {
+                      attrs: {
+                        href: "/courses",
+                        active: _vm.$page.currentRouteName == "courses"
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Les formations\n                        "
                       )
                     ]
                   )
@@ -26437,16 +26482,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "app-layout",
+    {
+      scopedSlots: _vm._u([
+        {
+          key: "header",
+          fn: function() {
+            return [_vm._v("\n        Liste des formations\n    ")]
+          },
+          proxy: true
+        }
+      ])
+    },
+    [
+      _vm._v(" "),
+      _vm._l(this.courseList, function(course) {
+        return _c("div", { key: course.id, staticClass: "py-3" }, [
+          _c("div", { staticClass: "mx-8 bg-white rounded shadow p-4" }, [
+            _c("div", { staticClass: "flex justify-between items-center" }, [
+              _c("div", { staticClass: "text-3xl" }, [
+                _vm._v(_vm._s(course.title))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-gray-400" }, [
+                _vm._v("25 épisodes")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-sm text-gray-500" }, [
+              _vm._v(_vm._s(course.description))
+            ]),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass:
+                  "bg-indigo-500 text-white rounded px-2 py-1 mt-3 inline-block hover:bg-indigo-700",
+                attrs: { href: "#" }
+              },
+              [_vm._v("Voir la formation")]
+            )
+          ])
+        ])
+      })
+    ],
+    2
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Coucou")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
