@@ -15,7 +15,10 @@
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
-                                Dashboard
+                                Tableau de bord
+                            </jet-nav-link>
+                            <jet-nav-link href="/courses" :active="$page.currentRouteName == 'courses'">
+                                Les formations
                             </jet-nav-link>
                         </div>
                     </div>
