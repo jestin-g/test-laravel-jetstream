@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia\Inertia::render('Dashboard');
-})->name('dashboard');
+Route::get('/courses', 'App\Http\Controllers\CourseController@index')->name('courses.index');
+
+Route::group(['auth:sanctum', 'verified'], function () {
+    Route::get('/dashboard', function () {
+        return Inertia\Inertia::render('Dashboard');
+    })->name('dashboard');
+    Route::get('/courses/{id}', 'App\Http\Controllers\CourseController@show')->name('courses.show');
+});
