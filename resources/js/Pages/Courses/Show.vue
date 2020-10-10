@@ -1,11 +1,9 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Liste des formations
-            </h2>
+            {{ course.title }}
         </template>
-        <div class="py-3" v-for="course in this.courseList" v-bind:key="course.id">
+        <div class="py-3">
             <div class="mx-8 bg-white rounded shadow p-4">
                 <div class="text-sm text-gray-500">Mise en ligne par {{ course.user.name }}</div>
                 <div class="flex justify-between items-center">
@@ -28,16 +26,16 @@ export default {
         AppLayout,
     },
     
-    props: ['courses'],
+    props: ['course'],
 
     data() {
         return {
-            courseList : this.courses
+            courseShow : this.course
         }
     },
 
     mounted() {
-        console.log(this.courses);
+        console.log(this.course);
     }
 }
 </script>
