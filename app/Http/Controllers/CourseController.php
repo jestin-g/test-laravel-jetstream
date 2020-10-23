@@ -18,7 +18,7 @@ class CourseController extends Controller
 
     public function show(int $id)
     {
-        $course = Course::find($id)->with('episodes')->get();
+        $course = Course::where('id', $id)->with('episodes')->first();
 
         return Inertia::render('Courses/Show', [
             'course' => $course

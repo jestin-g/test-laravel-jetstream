@@ -3481,9 +3481,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -26622,7 +26619,20 @@ var render = function() {
         {
           key: "header",
           fn: function() {
-            return [_vm._v("\n        " + _vm._s(_vm.course.title) + "\n    ")]
+            return [
+              _c(
+                "h2",
+                {
+                  staticClass:
+                    "font-semibold text-xl text-gray-800 leading-tight"
+                },
+                [
+                  _vm._v(
+                    "\n            " + _vm._s(_vm.course.title) + "\n        "
+                  )
+                ]
+              )
+            ]
           },
           proxy: true
         }
@@ -26631,34 +26641,17 @@ var render = function() {
     [
       _vm._v(" "),
       _c("div", { staticClass: "py-3" }, [
-        _c("div", { staticClass: "mx-8 bg-white rounded shadow p-4" }, [
-          _c("div", { staticClass: "text-sm text-gray-500" }, [
-            _vm._v("Mise en ligne par " + _vm._s(_vm.course.user.name))
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex justify-between items-center" }, [
-            _c("div", { staticClass: "text-3xl" }, [
-              _vm._v(_vm._s(_vm.course.title))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-gray-400" }, [
-              _vm._v(_vm._s(_vm.course.episodes_count) + " épisodes")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-sm text-gray-500" }, [
-            _vm._v(_vm._s(_vm.course.description))
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass:
-                "bg-indigo-500 text-white rounded px-2 py-1 mt-3 inline-block hover:bg-indigo-700",
-              attrs: { href: "course/" + _vm.course.id }
-            },
-            [_vm._v("Voir la formation")]
-          )
+        _c("div", { staticClass: "text-2xl" }, [
+          _vm._v(_vm._s(_vm.course.episodes[0].title))
+        ]),
+        _vm._v(" "),
+        _c("iframe", {
+          staticClass: "w-full h-screen",
+          attrs: { src: _vm.course.episodes[0].video_url, frameborder: "0" }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-sm text-gray-500" }, [
+          _vm._v(_vm._s(_vm.course.description))
         ])
       ])
     ]
